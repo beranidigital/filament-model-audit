@@ -8,6 +8,7 @@
 
 
 Automatically audits all model change for Filament
+Designed for install and forget, if you want to customize it use [bearnidigital/laravel-model-audit](https://github.com/beranidigital/laravel-model-audit) instead
 
 
 
@@ -37,6 +38,9 @@ public function panel(Panel $panel): Panel
     return $panel
         ->plugins([
             \BeraniDigitalID\FilamentModelAudit\FilamentModelAuditPlugin::make()
+            ->setResourceNavigationGroup('settings')
+            ->setResourceNavigationIcon(null)
+            ->setResourceNavigationSort(2)
         ]);
 };
 ```

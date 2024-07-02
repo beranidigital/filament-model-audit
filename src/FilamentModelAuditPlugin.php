@@ -29,6 +29,34 @@ class FilamentModelAuditPlugin implements Plugin
         return app(static::class);
     }
 
+    public function setResourceModel(string $model): static
+    {
+        Resources\AuditTrailResource::$model = $model;
+
+        return $this;
+    }
+
+    public function setResourceNavigationGroup(?string $group): static
+    {
+        Resources\AuditTrailResource::$navigationGroup = $group;
+
+        return $this;
+    }
+
+    public function setResourceNavigationSort(?int $sort): static
+    {
+        Resources\AuditTrailResource::$navigationSort = $sort;
+
+        return $this;
+    }
+
+    public function setResourceNavigationIcon(?string $icon): static
+    {
+        Resources\AuditTrailResource::$navigationIcon = $icon;
+
+        return $this;
+    }
+
     public static function get(): static
     {
         /** @var static $plugin */

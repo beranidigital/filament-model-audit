@@ -12,11 +12,13 @@ use Filament\Tables\Table;
 
 class AuditTrailResource extends Resource
 {
-    protected static ?string $model = AuditTrail::class;
+    public static ?string $model = AuditTrail::class;
 
-    protected static ?string $navigationGroup = 'settings';
+    public static ?string $navigationGroup = null;
 
-    protected static ?int $navigationSort = 3;
+    public static ?string $navigationIcon = 'heroicon-o-document-text';
+
+    public static ?int $navigationSort = 3;
 
     public static function table(Table $table): Table
     {
@@ -53,7 +55,6 @@ class AuditTrailResource extends Resource
                 //
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
                 Tables\Actions\ViewAction::make('Diff')
                     ->disabled(fn ($record) => $record->old_values == null && $record->new_values == null)
                     ->form([
@@ -80,9 +81,6 @@ class AuditTrailResource extends Resource
                     ->disabledForm(),
             ])
             ->bulkActions([
-                Tables\Actions\BulkActionGroup::make([
-                    Tables\Actions\DeleteBulkAction::make(),
-                ]),
             ]);
     }
 
@@ -131,7 +129,6 @@ class AuditTrailResource extends Resource
     {
         return [
             'index' => Pages\ListAuditTrails::route('/'),
-            'edit' => Pages\EditAuditTrail::route('/{record}/edit'),
         ];
     }
 }

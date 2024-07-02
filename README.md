@@ -10,6 +10,8 @@
 Automatically audits all model change for Filament
 Designed for install and forget, if you want to customize it use [bearnidigital/laravel-model-audit](https://github.com/beranidigital/laravel-model-audit) instead
 
+![image](https://github.com/beranidigital/filament-model-audit/assets/77704356/737777c2-7a16-4d3c-88a4-52d714dd30d8)
+![image](https://github.com/beranidigital/filament-model-audit/assets/77704356/91782db5-e310-4ea2-a19c-beb9cf520964)
 
 
 ## Installation

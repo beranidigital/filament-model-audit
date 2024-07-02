@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace BeraniDigitalID\FilamentModelAudit;
 
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
@@ -13,14 +13,14 @@ use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use VendorName\Skeleton\Commands\SkeletonCommand;
-use VendorName\Skeleton\Testing\TestsSkeleton;
+use BeraniDigitalID\FilamentModelAudit\Commands\FilamentModelAuditCommand;
+use BeraniDigitalID\FilamentModelAudit\Testing\TestsFilamentModelAudit;
 
-class SkeletonServiceProvider extends PackageServiceProvider
+class FilamentModelAuditServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'skeleton';
+    public static string $name = 'filament-model-audit';
 
-    public static string $viewNamespace = 'skeleton';
+    public static string $viewNamespace = 'filament-model-audit';
 
     public function configurePackage(Package $package): void
     {
@@ -36,7 +36,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
                     ->publishConfigFile()
                     ->publishMigrations()
                     ->askToRunMigrations()
-                    ->askToStarRepoOnGitHub(':vendor_slug/:package_slug');
+                    ->askToStarRepoOnGitHub('beranidigital/filament-model-audit');
             });
 
         $configFileName = $package->shortName();
@@ -80,18 +80,18 @@ class SkeletonServiceProvider extends PackageServiceProvider
         if (app()->runningInConsole()) {
             foreach (app(Filesystem::class)->files(__DIR__ . '/../stubs/') as $file) {
                 $this->publishes([
-                    $file->getRealPath() => base_path("stubs/skeleton/{$file->getFilename()}"),
-                ], 'skeleton-stubs');
+                    $file->getRealPath() => base_path("stubs/filament-model-audit/{$file->getFilename()}"),
+                ], 'filament-model-audit-stubs');
             }
         }
 
         // Testing
-        Testable::mixin(new TestsSkeleton());
+        Testable::mixin(new TestsFilamentModelAudit());
     }
 
     protected function getAssetPackageName(): ?string
     {
-        return ':vendor_slug/:package_slug';
+        return 'beranidigital/filament-model-audit';
     }
 
     /**
@@ -100,9 +100,9 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getAssets(): array
     {
         return [
-            // AlpineComponent::make('skeleton', __DIR__ . '/../resources/dist/components/skeleton.js'),
-            Css::make('skeleton-styles', __DIR__ . '/../resources/dist/skeleton.css'),
-            Js::make('skeleton-scripts', __DIR__ . '/../resources/dist/skeleton.js'),
+            // AlpineComponent::make('filament-model-audit', __DIR__ . '/../resources/dist/components/filament-model-audit.js'),
+            Css::make('filament-model-audit-styles', __DIR__ . '/../resources/dist/filament-model-audit.css'),
+            Js::make('filament-model-audit-scripts', __DIR__ . '/../resources/dist/filament-model-audit.js'),
         ];
     }
 
@@ -112,7 +112,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getCommands(): array
     {
         return [
-            SkeletonCommand::class,
+            FilamentModelAuditCommand::class,
         ];
     }
 
@@ -146,7 +146,7 @@ class SkeletonServiceProvider extends PackageServiceProvider
     protected function getMigrations(): array
     {
         return [
-            'create_skeleton_table',
+            'create_filament-model-audit_table',
         ];
     }
 }

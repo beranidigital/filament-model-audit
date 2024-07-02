@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Database\Factories;
+namespace BeraniDigitalID\FilamentModelAudit\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

@@ -2,9 +2,10 @@
 
 namespace BeraniDigitalID\FilamentModelAudit;
 
+use BeraniDigitalID\FilamentModelAudit\Commands\FilamentModelAuditCommand;
+use BeraniDigitalID\FilamentModelAudit\Testing\TestsFilamentModelAudit;
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
-use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
@@ -13,8 +14,6 @@ use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use BeraniDigitalID\FilamentModelAudit\Commands\FilamentModelAuditCommand;
-use BeraniDigitalID\FilamentModelAudit\Testing\TestsFilamentModelAudit;
 
 class FilamentModelAuditServiceProvider extends PackageServiceProvider
 {

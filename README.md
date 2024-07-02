@@ -1,4 +1,4 @@
-# This is my package filament-model-audit
+# Filament Model Audit
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/beranidigital/filament-model-audit.svg?style=flat-square)](https://packagist.org/packages/beranidigital/filament-model-audit)
 [![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/beranidigital/filament-model-audit/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/beranidigital/filament-model-audit/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -7,7 +7,9 @@
 
 
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Automatically audits all model change for Filament
+
+
 
 ## Installation
 
@@ -17,37 +19,26 @@ You can install the package via composer:
 composer require beranidigital/filament-model-audit
 ```
 
-You can publish and run the migrations with:
+Publish and run the migrations with:
 
 ```bash
-php artisan vendor:publish --tag="filament-model-audit-migrations"
+php artisan vendor:publish --tag="laravel-model-audit-migrations"
 php artisan migrate
 ```
 
-You can publish the config file with:
 
-```bash
-php artisan vendor:publish --tag="filament-model-audit-config"
-```
 
-Optionally, you can publish the views using
-
-```bash
-php artisan vendor:publish --tag="filament-model-audit-views"
-```
-
-This is the contents of the published config file:
-
-```php
-return [
-];
-```
 
 ## Usage
 
 ```php
-$filamentModelAudit = new BeraniDigitalID\FilamentModelAudit();
-echo $filamentModelAudit->echoPhrase('Hello, BeraniDigitalID!');
+public function panel(Panel $panel): Panel
+{
+    return $panel
+        ->plugins([
+            \BeraniDigitalID\FilamentModelAudit\FilamentModelAuditPlugin::make()
+        ]);
+};
 ```
 
 ## Testing

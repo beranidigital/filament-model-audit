@@ -14,7 +14,9 @@ class FilamentModelAuditPlugin implements Plugin
 
     public function register(Panel $panel): void
     {
-        //
+        $panel->resources([
+            Resources\AuditTrailResource::class,
+        ]);
     }
 
     public function boot(Panel $panel): void

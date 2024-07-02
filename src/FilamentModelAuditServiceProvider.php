@@ -101,8 +101,7 @@ class FilamentModelAuditServiceProvider extends PackageServiceProvider
     {
         return [
             // AlpineComponent::make('filament-model-audit', __DIR__ . '/../resources/dist/components/filament-model-audit.js'),
-            Css::make('filament-model-audit-styles', __DIR__ . '/../resources/dist/filament-model-audit.css'),
-            Js::make('filament-model-audit-scripts', __DIR__ . '/../resources/dist/filament-model-audit.js'),
+
         ];
     }
 
